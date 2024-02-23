@@ -19,6 +19,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.lyh.spintest.util.toColor
+import kotlinx.collections.immutable.toPersistentList
 
 @Composable
 internal fun SpinWheelComponent(spinWheelState: SpinWheelState) {
@@ -103,12 +104,12 @@ private fun SpinWheelComponentPreview() {
                 val colors = if (index % 2 == 0) colors1 else colors2
 
                 SpinWheelItem(
-                    colors = colors
+                    colors = colors.toPersistentList()
                 ) {
                     Text(text = "$$index")
                 }
 
-            }
+            }.toPersistentList()
         }
 
         val state = rememberSpinWheelState(

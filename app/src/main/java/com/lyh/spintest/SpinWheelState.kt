@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.collections.immutable.PersistentList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlin.time.Duration
@@ -92,7 +93,7 @@ data class SpinWheelState(
 
 @Composable
 fun rememberSpinWheelState(
-    items: List<SpinWheelItem>,
+    items: PersistentList<SpinWheelItem>,
     @DrawableRes backgroundImage: Int,
     @DrawableRes centerImage: Int,
     @DrawableRes indicatorImage: Int,

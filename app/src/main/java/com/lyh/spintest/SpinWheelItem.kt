@@ -1,10 +1,13 @@
 package com.lyh.spintest
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
+import kotlinx.collections.immutable.PersistentList
 
+@Stable
 data class SpinWheelItem(
-    val colors: List<Color>,
+    val colors: PersistentList<Color>,
     val content: @Composable () -> Unit,
 )
 

@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.min
 import com.lyh.spintest.util.toBrush
 import com.lyh.spintest.util.toColor
+import kotlinx.collections.immutable.toPersistentList
 
 @Composable
 internal fun SpinWheel(
@@ -66,7 +67,7 @@ private fun SpinWheelPreview(
                 val colors = if (index % 2 == 0) colors1 else colors2
 
                 SpinWheelItem(
-                    colors = colors
+                    colors = colors.toPersistentList()
                 ) {
                     Text(text = "$$index")
                 }

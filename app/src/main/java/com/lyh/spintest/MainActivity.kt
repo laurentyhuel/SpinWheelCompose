@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import com.chargemap.compose.numberpicker.NumberPicker
 import com.lyh.spintest.ui.theme.SpinTestTheme
 import com.lyh.spintest.util.toColor
+import kotlinx.collections.immutable.toPersistentList
 import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
@@ -55,7 +56,7 @@ class MainActivity : ComponentActivity() {
                         val colors = if (index % 2 == 0) colors1 else colors2
 
                         SpinWheelItem(
-                            colors = colors
+                            colors = colors.toPersistentList()
                         ) {
                             Text(
                                 text = "$$index",
@@ -63,7 +64,7 @@ class MainActivity : ComponentActivity() {
                             )
                         }
 
-                    }
+                    }.toPersistentList()
                 }
                 var pickerValue by remember { mutableIntStateOf(0) }
 
